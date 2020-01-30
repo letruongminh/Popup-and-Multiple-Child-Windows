@@ -1,3 +1,4 @@
 {
-  "newtourLinks": "http://demo.guru99.com/test/newtours/"
+  "newtourLinks": "http://demo.guru99.com/test/newtours/",
+  "baseURL": "http://www.facebook.com/"
 }

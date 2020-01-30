@@ -3,6 +3,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,6 +13,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -49,5 +51,29 @@ public class MouseAndKeyboardActions {
 
     }
 
+    @Test
+    public void buildMultipleActions() throws IOException, ParseException {
+        File file = new File(
+                System.getProperty("user.dir") + "/src/test/java/resources/dataNew.json"
+        );
+        FileReader reader = new FileReader(file);
+        Object obj = new JSONParser().parse(reader);
+        JSONObject jsonObject = (JSONObject) obj;
+        String baseURL = (String) jsonObject.get("baseURL");
 
+        driver.get( baseURL );
+        Actions builder = new Actions(driver);
+        WebElement txtUsername = driver
+                .findElement(By.cssSelector("#email"));
+        Action seriesOfAction = builder
+                .moveToElement(txtUsername)
+                .click()
+                .keyDown(txtUsername, Keys.SHIFT)
+                .sendKeys("hello")
+                .keyUp(txtUsername, Keys.SHIFT)
+                .doubleClick(txtUsername)
+                .contextClick()
+                .build();
+        seriesOfAction.perform();
+    }
 }
