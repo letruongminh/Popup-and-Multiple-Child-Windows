@@ -1,4 +1,5 @@
 {
   "newtourLinks": "http://demo.guru99.com/test/newtours/",
-  "baseURL": "http://www.facebook.com/"
+  "baseURL": "http://www.facebook.com/",
+  "nestedTable" : "http://demo.guru99.com/test/accessing-nested-table.html"
 }
