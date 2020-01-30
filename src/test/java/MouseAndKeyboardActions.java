@@ -68,11 +68,11 @@ public class MouseAndKeyboardActions {
         Action seriesOfAction = builder
                 .moveToElement(txtUsername)
                 .click()
-                .keyDown(txtUsername, Keys.SHIFT)
+                .keyDown(txtUsername, Keys.SHIFT) // khi nhan giu phim shift
                 .sendKeys("hello")
-                .keyUp(txtUsername, Keys.SHIFT)
+                .keyUp(txtUsername, Keys.SHIFT) // khi nha phimm shift ra
                 .doubleClick(txtUsername)
-                .contextClick()
+                .contextClick() // chuot phai
                 .build();
         seriesOfAction.perform();
     }
