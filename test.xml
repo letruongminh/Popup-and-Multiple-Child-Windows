@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TS001">
+    <parameter name="URL" value="http://demo.guru99.com/popup.php"></parameter>
+    <parameter name="URLAlert" value="http://demo.guru99.com/test/delete_customer.php "></parameter>
+    <parameter name="name" value="Minh Le"></parameter>
+    <test name="Handle Popup and Alert">
+        <classes>
+            <class name="AlertPopup"/>
+        </classes>
+    </test>
+</suite>
